@@ -82,8 +82,7 @@ export default function Home() {
   const fetchWeatherDataByCoords = async (lat: number, lon: number) => {
     setLoadingWeather(true);
     setWeatherError(null);
-    try {
-      debugger;
+    try {      
       const current = await fetchCurrentWeather(`lat=${lat}&lon=${lon}&units=metric`);
       setCurrentWeatherData(current);
       setCity(current.name); // Set the city name based on geo      
@@ -102,8 +101,7 @@ export default function Home() {
     try {
       const current = await fetchCurrentWeather(`q=${cityName}&units=metric`);
       setCurrentWeatherData(current);
-      setCity(current.name);
-      debugger;
+      setCity(current.name);      
       const forecast = await fetchForecast(`q=${cityName}&units=metric`);
       setForecastData(forecast);
     } catch (err) {
